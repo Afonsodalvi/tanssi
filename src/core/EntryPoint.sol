@@ -16,14 +16,14 @@ import "./NonceManager.sol";
 import "./UserOperationLib.sol";
 
 // we also require '@gnosis.pm/safe-contracts' and both libraries have 'IERC165.sol', leading to conflicts
-import "@openzeppelin/contracts/utils/introspection/ERC165.sol" as OpenZeppelin;
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "../utils/ERC165.sol";
+import "../utils/ReentrancyGuard.sol";
 
 /*
  * Account-Abstraction (EIP-4337) singleton EntryPoint implementation.
  * Only one instance required on each chain.
  */
-contract EntryPoint is IEntryPoint, StakeManager, NonceManager, ReentrancyGuard, OpenZeppelin.ERC165 {
+contract EntryPoint is IEntryPoint, StakeManager, NonceManager, ReentrancyGuard, ERC165 {
 
     using UserOperationLib for UserOperation;
 
@@ -41,7 +41,7 @@ contract EntryPoint is IEntryPoint, StakeManager, NonceManager, ReentrancyGuard,
      */
     uint256 public constant SIG_VALIDATION_FAILED = 1;
 
-    /// @inheritdoc OpenZeppelin.IERC165
+    
     function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {
         // note: solidity "type(IEntryPoint).interfaceId" is without inherited methods but we want to check everything
         return interfaceId == (type(IEntryPoint).interfaceId ^ type(IStakeManager).interfaceId ^ type(INonceManager).interfaceId) ||

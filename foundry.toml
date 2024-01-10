@@ -1,5 +1,5 @@
 [profile.default]
-solc_version = "0.8.20"
+solc_version = "0.8.18"
 
 src = "src"
 out = "out"
@@ -12,6 +12,7 @@ optimezer_runs = 1000
 # match_path = "test/unit/*"
 # via_ir = true
 # ffi = true
+evm_version = 'paris'
 
 [rpc_endpoints]
 sepolia = "${SEPOLIA_RPC_URL}"
@@ -24,6 +25,8 @@ linea_goerli = "${LINEA_GOERLI_RPC_URL}"
 linea = "${LINEA_RPC_URL}"
 lumx = "${LUMX_RPC_URL}"
 besu = "${BESU_RPC_URL}"
+besuAfo = "${BESU_RPC_AFO}"
+bitcoin = "${BITCOIN_RPC_URL}"
 
 [etherscan]
 linea = { key = "${LINEA_API_KEY}" }
