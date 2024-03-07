@@ -27,6 +27,10 @@ lumx = "${LUMX_RPC_URL}"
 besu = "${BESU_RPC_URL}"
 besuAfo = "${BESU_RPC_AFO}"
 bitcoin = "${BITCOIN_RPC_URL}"
+bvm = "${BVM_RPC_URL}"
+whitebit = "${WHITEBIT_RPC_URL}"
+nostest = "${NOSTEST_RPC_URL}"
+nos = "${NOS_RPC_URL}"
 
 [etherscan]
 linea = { key = "${LINEA_API_KEY}" }
